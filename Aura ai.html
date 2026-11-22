@@ -381,17 +381,15 @@ main{background:transparent !important; padding:22px 16px 170px !important;}
 </style><style id="ban-style">@keyframes blinkRed{0%,49%{background:rgba(220,38,38,.95)}50%,100%{background:rgba(127,29,29,.95)}} #banOverlay{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:rgba(220,38,38,.95);animation:blinkRed 1s infinite;color:#fff;text-align:center;padding:20px;font-family:inherit} #banOverlay h2{font-size:28px;font-weight:900;margin:0} #banOverlay p{font-size:16px;font-weight:600} #banOverlay .countdown{font-size:42px;font-weight:900;background:#fff;color:#dc2626;padding:10px 22px;border-radius:14px}</style><style id="update-fix-css">
 #settingsPanel{max-height:88vh !important; overflow-y:auto !important; padding-bottom:20px !important; box-sizing:border-box !important;}
 #updateSettings{margin-top:14px !important; background:#f1f5f9 !important; border-radius:14px !important; padding:12px !important;}
-#updateSettings input{width:100% !important; padding:12px !important; border-radius:12px !important; border:2px solid #0f172a !important; font-size:14px !important; box-sizing:border-box !important; margin:6px 0 !important; background:#fff !important;}
-#updateSettings button{width:100% !important; padding:13px !important; border:0 !important; border-radius:12px !important; background:#22c55e !important; color:#fff !important; font-weight:900 !important; cursor:pointer !important; font-size:15px !important; margin-top:6px !important; touch-action:manipulation !important;}
 #updateSettings .small{font-size:12px !important; color:#475569 !important; line-height:1.4 !important;}
 #updateStatus{font-size:13px !important; margin-top:8px !important; font-weight:700 !important; min-height:18px !important; word-break:break-all !important;}
 #updateBanner{position:fixed !important; left:10px !important; right:10px !important; top:10px !important; bottom:auto !important; z-index:2147483647 !important; display:none; background:#0f172a !important; color:#fff !important; border-radius:20px !important; padding:18px !important; box-shadow:0 20px 60px rgba(0,0,0,.6) !important; border:4px solid #22c55e !important; text-align:center !important;}
 #updateBanner button{border:0 !important; border-radius:14px !important; padding:16px !important; font-weight:900 !important; cursor:pointer !important; font-size:17px !important; width:100% !important;}
 #updateBanner .loadBtn{background:#22c55e !important; color:#fff !important; margin-bottom:8px !important;}
 #updateBanner .laterBtn{background:rgba(255,255,255,.2) !important; color:#fff !important;}
-#updateFloatBtn{position:fixed !important; right:14px !important; bottom:90px !important; z-index:2147483647 !important; display:none; background:#22c55e !important; color:#fff !important; border:3px solid #fff !important; border-radius:999px !important; padding:16px 20px !important; font-weight:900 !important; font-size:16px !important; box-shadow:0 10px 30px rgba(0,0,0,.5) !important; cursor:pointer !important; animation:auraPulse 1s infinite !important;}
-@keyframes auraPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-#updateLoadBtn2{background:#22c55e !important; display:none !important;}
+#updateFloatBtn{position:fixed !important; right:14px !important; bottom:90px !important; z-index:2147483647 !important; display:none; background:#22c55e !important; color:#fff !important; border:3px solid #fff !important; border-radius:999px !important; padding:16px 20px !important; font-weight:900 !important; font-size:16px !important; box-shadow:0 10px 30px rgba(0,0,0,.5) !important; cursor:pointer !important;}
+#updateBarWrap{display:none; margin-top:12px; background:rgba(255,255,255,.2); border-radius:999px; overflow:hidden; height:22px;}
+#updateBar{height:100%; width:0%; background:#22c55e; border-radius:999px; transition:width .2s; text-align:center; color:#fff; font-size:12px; font-weight:900; line-height:22px;}
 </style>
 </head>
 <body>
@@ -403,14 +401,14 @@ main{background:transparent !important; padding:22px 16px 170px !important;}
   </aside>
   <div class="app">
     <header class="top"><div class="top-left"><button class="icon-btn" id="toggleSidebar">☰</button></div><div class="logo-header"><div class="logo-orb-mini"></div><div class="logo-header-text">AURA<span class="light">AI</span></div></div><div class="top-right"><button class="settings-btn" id="settingsBtn" title="Einstellungen">⚙️</button></div></header>
-  <div class="settings-panel show" id="settingsPanel">
+  <div class="settings-panel" id="settingsPanel">
     <h3>⚙️ Einstellungen</h3>
     <label>🔊 Vorlese-Stimme</label>
     <select id="voiceSelect"><option value="Anna">Anna (de-DE)</option><option value="Anna">Anna (de-DE)</option><option value="Daniel">Daniel (en-GB)</option><option value="Montse">Montse (ca-ES)</option><option value="Samantha">Samantha (en-US)</option><option value="Alice">Alice (it-IT)</option><option value="Alva">Alva (sv-SE)</option><option value="Amélie">Amélie (fr-CA)</option><option value="Amira">Amira (ms-MY)</option><option value="Carmit">Carmit (he-IL)</option><option value="Damayanti">Damayanti (id-ID)</option><option value="Daniel">Daniel (en-GB)</option><option value="Daria">Daria (bg-BG)</option><option value="Ellen">Ellen (nl-BE)</option><option value="Ioana">Ioana (ro-RO)</option><option value="Joana">Joana (pt-PT)</option><option value="Kanya">Kanya (th-TH)</option><option value="Karen">Karen (en-AU)</option><option value="Kyoko">Kyoko (ja-JP)</option><option value="Lana">Lana (hr-HR)</option><option value="Laura">Laura (sk-SK)</option><option value="Lekha">Lekha (hi-IN)</option><option value="Lesya">Lesya (uk-UA)</option><option value="Linh">Linh (vi-VN)</option><option value="Luciana">Luciana (pt-BR)</option><option value="Majed">Majed (ar-001)</option><option value="Tünde">Tünde (hu-HU)</option><option value="Meijia">Meijia (zh-TW)</option><option value="Melina">Melina (el-GR)</option><option value="Milena">Milena (ru-RU)</option><option value="Moira">Moira (en-IE)</option><option value="Mónica">Mónica (es-ES)</option><option value="Montse">Montse (ca-ES)</option><option value="Nora">Nora (nb-NO)</option><option value="Paulina">Paulina (es-MX)</option><option value="Rishi">Rishi (en-IN)</option><option value="Samantha">Samantha (en-US)</option><option value="Sara">Sara (da-DK)</option><option value="Satu">Satu (fi-FI)</option><option value="Sinji">Sinji (yue-HK)</option><option value="Tessa">Tessa (en-ZA)</option><option value="Thomas">Thomas (fr-FR)</option><option value="Tina">Tina (sl-SI)</option><option value="Tingting">Tingting (zh-CN)</option><option value="Xander">Xander (nl-NL)</option><option value="Yelda">Yelda (tr-TR)</option><option value="Yuna">Yuna (ko-KR)</option><option value="Zosia">Zosia (pl-PL)</option><option value="Zuzana">Zuzana (cs-CZ)</option><option value="Vani">Vani (ta-IN)</option><option value="Albert">Albert (en-US)</option><option value="Soumya">Soumya (kn-IN)</option><option value="Schlechte Neuigkeiten">Schlechte Neuigkeiten (en-US)</option><option value="Bahh">Bahh (en-US)</option><option value="Glocken">Glocken (en-US)</option><option value="Boing">Boing (en-US)</option><option value="Seifenblasen">Seifenblasen (en-US)</option><option value="Cellos">Cellos (en-US)</option><option value="Wobble">Wobble (en-US)</option><option value="Fred">Fred (en-US)</option><option value="Geeta">Geeta (te-IN)</option><option value="Gute Neuigkeiten">Gute Neuigkeiten (en-US)</option><option value="Spaßvogel">Spaßvogel (en-US)</option><option value="Junior">Junior (en-US)</option><option value="Katrin">Katrin (en-US)</option><option value="Orgel">Orgel (en-US)</option><option value="Piya">Piya (bn-IN)</option><option value="Superstar">Superstar (en-US)</option><option value="Ralph">Ralph (en-US)</option><option value="Monster">Monster (en-US)</option><option value="Flüstern">Flüstern (en-US)</option><option value="Zarvox">Zarvox (en-US)</option></select>
     <div class="hint">Wähle eine Google-Stimme (z.B. Google Deutsch) für das Vorlesen. Wird lokal gespeichert.</div>
     <label style="margin-top:16px;">🎮 Spiele</label>
     <div class="hint">Sag "Ich will ein Spiel spielen" für Tic Tac Toe, Schere Stein Papier, Zahlen raten und Quiz!</div>
-  <div id="updateSettings"><h3 style="margin:0 0 6px 0">🔔 Updates</h3><div class="small">App: <b>V17</b> • Geladen: <b>noch keine</b></div><input id="updateBaseInput" placeholder="Link mit Version hinten, z.B. .../update-v20.json" autocomplete="off" onclick="event.stopPropagation()" onmousedown="event.stopPropagation()"><button id="updateSaveBtn" type="button" onclick="event.stopPropagation(); return window.auraSaveUpdateBase();" onmousedown="event.stopPropagation()">✅ Speichern + Prüfen</button><button id="updateLoadBtn2" type="button" onclick="event.stopPropagation(); return window.auraLoadUpdate();" onmousedown="event.stopPropagation()">⬇️ JETZT LADEN</button><div id="updateStatus">⚠️ Load failed</div><div class="small" style="margin-top:6px">Tipp: Link mit Version hinten, z.B. <b>.../main/update-v20.json</b></div></div></div>
+  <div id="updateSettings"><h3 style="margin:0 0 6px 0">🔔 Updates — automatisch!</h3><div class="small">Deine Version: <b>V17</b><br>Link ist schon drin: <b>BIGLABPRINTS / Aura-Ai</b><br>Ich gucke alle 10 Sekunden automatisch nach der nächsten Version. Du musst nichts einfügen!</div><div id="updateStatus">✅ Automatisch geprüft. Deine Version: V17. Ich gucke alle 10 Sekunden nach V18. Link ist schon drin, du musst nichts einfügen.</div></div></div>
     <main id="main">
       <section class="welcome" id="welcome" style="visibility: visible;"><div class="glass-badge"><span class="badge-dot"></span> LIQUID GLASS • CLEAN • HUND/KATZE EHRLICH</div><div class="orb-wrap"><div class="orb"></div></div><h1>AURA <span class="grad">AI</span></h1><p class="welcome-sub">Frag mich alles — Wissen, Spiele, Bilder, Sprache.<br>Mit <b>Web-Suche</b> live eingebaut und deinen eigenen Begriffen.</p><div class="chips"><button class="chip" data-q="Hallo">👋 Hallo</button><button class="chip" data-q="Ich will ein Spiel spielen">🎮 Spiel</button><button class="chip" data-q="Wie spät ist es?">🕒 Uhrzeit</button><button class="chip" data-q="Erzähl mir einen Witz">😄 Witz</button></div></section>
       <div class="messages" id="messages"></div>
@@ -1546,6 +1544,7 @@ function genFindEntity(n){
   return null;
 }
 function genAnswer(text){
+  try{ var _upd2=auraCheckUpdateWords(text); if(_upd2) return _upd2; }catch(e){}
   const raw=text.trim(); const n=raw.toLowerCase().replace(/[?!.]+$/,'').trim();
   // Vergleich: was ist größer / schneller / besser, X oder Y
   let cmp=n.match(/was ist (größer|groesser|kleiner|schneller|langsamer|besser|stärker|staerker|größer|grösser)[, ]+(.+)\s+oder\s+(.+)/);
@@ -1581,6 +1580,7 @@ function genAnswer(text){
 }
 
 async function think(text){
+  try{ var _upd=auraCheckUpdateWords(text); if(_upd) return _upd; }catch(e){}
   // Check for web query first (except for games, small talk)
   const tLower = text.toLowerCase().trim();
   const isGameQuery = tLower.includes('spiel')||tLower.includes('tic tac')||tLower.includes('schere')||tLower.includes('zahlen raten')||tLower.includes('quiz');
@@ -1891,155 +1891,103 @@ window.addEventListener('DOMContentLoaded', ()=>{ botGuard.init(); renderBotShie
 </script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><div id="banOverlay"><div style="font-size:64px">⛔</div><h2>GEBANNT — 10 MINUTEN</h2><p>Du hast gespammt. Du kannst nur noch <b>keine Nachrichten schreiben</b>, bis der Ban abgelaufen ist.</p><div class="countdown" id="banCountdown">10:00</div><p>Danach kannst du wieder schreiben. Beim 3. Mal wirst du dauerhaft gebannt.</p></div><div id="disclaimer-footer" style="text-align:center;font-size:10px;color:#64748b;padding:6px 12px">⚠️ AURA AI kann Fehler machen. Die Antworten können abweichen. Bitte überprüfe wichtige Infos und frage bei wichtigen Themen eine Fachperson oder einen Experten.</div>
 <script id="aura-update-script">
-// ========== AURA UPDATE: V20 mit Nummer hinten, z.B. update-v20.json ==========
-// 3 WEGE GLEICHZEITIG: 1) Computer-Fenster (confirm), 2) Banner oben, 3) Fester Button + Einstellungen gehen automatisch auf
+// ========== AURA AUTO-UPDATE: Link ist SCHON DRIN, kein Einfügen mehr nötig! ==========
+// Dein Repo (von deinem Bild): BIGLABPRINTS / Aura-Ai
+// Datei heißt immer: words-v23.json, words-v24.json, words-v25.json ...
+// Die KI guckt alle 10 Sekunden: "Ich habe V23, gibt es schon V24?"
 window.AURA_UPDATE = {
   appVersion: "V17",
-  get base(){ try{ return (localStorage.getItem('aura_update_base')||'').trim(); }catch(e){ return window._auraBase||''; } },
-  set base(v){ try{ localStorage.setItem('aura_update_base', v); }catch(e){} window._auraBase=v; },
+  repoBase: "https://raw.githubusercontent.com/BIGLABPRINTS/Aura-Ai/main/",
   get loadedVersion(){ try{ return localStorage.getItem('aura_update_loaded')||''; }catch(e){ return ''; } },
   set loadedVersion(v){ try{ localStorage.setItem('aura_update_loaded', v); }catch(e){} }
 };
 function auraUpdateWords(){ try{ return JSON.parse(localStorage.getItem('aura_update_words')||'[]') }catch(e){ return [] } }
+function auraNorm(s){ return (s||'').toLowerCase().replace(/[ä]/g,'a').replace(/[ö]/g,'o').replace(/[ü]/g,'u').replace(/ß/g,'ss').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
 function auraCheckUpdateWords(text){
   var words=auraUpdateWords(); if(!words.length) return null;
-  var n=(text||'').toLowerCase();
-  for(var i=0;i<words.length;i++){ var w=words[i]; if(!w||!w.wort) continue; var kw=w.wort.toLowerCase(); if(n===kw||n.includes(kw)) return {text:w.antwort,isFallback:false,topic:'update_wort',action:null}; }
+  var n=auraNorm(text);
+  for(var i=0;i<words.length;i++){ var w=words[i]; if(!w||!w.wort) continue; var kw=auraNorm(w.wort); if(!kw) continue; if(n===kw || n.indexOf(kw)!==-1) return {text:w.antwort,isFallback:false,topic:'update_wort',action:null}; }
   return null;
 }
-function auraNormalizeBase(v){
-  v=(v||'').trim().replace(/\s+/g,'');
-  if(!v) return v;
-  if(v.indexOf('.json')!==-1){
-    if(v.indexOf('github.com/')!==-1 && v.indexOf('raw.githubusercontent.com')===-1){
-      var m=v.match(/github\.com\/([^\/]+)\/([^\/\?#]+)\/(.*)/);
-      if(m){ var rest=m[3].replace(/^blob\//,'').replace(/^main\//,'').replace(/^master\//,''); return 'https://raw.githubusercontent.com/'+m[1]+'/'+m[2].replace(/\.git$/,'')+'/main/'+rest; }
-    }
-    if(v.indexOf('http')!==0) v='https://'+v;
-    return v;
-  }
-  var m2=v.match(/github\.com\/([^\/]+)\/([^\/\?#]+)/);
-  if(m2){ return 'https://raw.githubusercontent.com/'+m2[1]+'/'+m2[2].replace(/\.git$/,'')+'/main/update.json'; }
-  if(v.indexOf('raw.githubusercontent.com')!==-1){
-    v=v.replace(/\.git$/,'');
-    var parts=v.replace(/^https?:\/\//,'').split('/').filter(Boolean);
-    if(parts.length===3) return 'https://'+parts.join('/')+'/main/update.json';
-    if(v.slice(-1)!=='/') v+='/';
-    return v+'update.json';
-  }
-  if(v.indexOf('http')!==0) v='https://'+v;
-  if(v.slice(-1)!=='/') v+='/';
-  return v+'update.json';
-}
-function auraUpdateUrl(){
-  var base=window.AURA_UPDATE.base;
-  if(!base) return '';
-  if(base.indexOf('.json')!==-1) return base;
-  if(base.slice(-1)!=='/') base+='/';
-  return base+'update.json';
-}
-function auraPlayUpdateSound(){
-  try{
-    var ctx=new (window.AudioContext||window.webkitAudioContext)();
-    [523,659,784,1046].forEach(function(f,i){ var o=ctx.createOscillator(); var g=ctx.createGain(); o.connect(g); g.connect(ctx.destination); o.frequency.value=f; o.type='sine'; g.gain.value=0.25; o.start(ctx.currentTime+i*0.15); o.stop(ctx.currentTime+i*0.15+0.3); });
-  }catch(e){}
-  try{ if(navigator.vibrate) navigator.vibrate([200,100,200]); }catch(e){}
-}
+function auraVersionNum(v){ var m=(v||'').match(/(\d+)/); return m ? parseInt(m[1],10) : 17; }
+function auraCurrentNum(){ return Math.max(auraVersionNum(window.AURA_UPDATE.loadedVersion), auraVersionNum(window.AURA_UPDATE.appVersion)); }
+function auraPlayUpdateSound(){ try{ var ctx=new (window.AudioContext||window.webkitAudioContext)(); [523,659,784,1046].forEach(function(f,i){ var o=ctx.createOscillator(); var g=ctx.createGain(); o.connect(g); g.connect(ctx.destination); o.frequency.value=f; o.type='sine'; g.gain.value=0.25; o.start(ctx.currentTime+i*0.15); o.stop(ctx.currentTime+i*0.15+0.3); }); }catch(e){} try{ if(navigator.vibrate) navigator.vibrate([200,100,200]); }catch(e){} }
 function auraShowUpdateBanner(data){
   var banner=document.getElementById('updateBanner');
   var txt=document.getElementById('updateBannerText');
-  if(txt) txt.textContent='Version '+data.version+' ist da! '+(data.text||'Neue Wörter sind da!')+' Tippe auf JETZT LADEN!';
+  if(txt) txt.textContent='Version '+data.version+' ist da! '+(data.text||'Neue Wörter sind da!')+' Willst du sie laden?';
   if(banner){ banner.style.display='block'; banner.style.visibility='visible'; banner.style.opacity='1'; }
   var floatBtn=document.getElementById('updateFloatBtn');
   if(floatBtn){ floatBtn.style.display='block'; floatBtn.textContent='🔔 JETZT LADEN: '+data.version+' ⬇️'; }
-  var btn2=document.getElementById('updateLoadBtn2');
-  if(btn2){ btn2.style.display='block'; btn2.textContent='⬇️ JETZT LADEN: Version '+data.version; }
   var statusEl=document.getElementById('updateStatus');
-  if(statusEl) statusEl.textContent='🔔 Neues Update da: '+data.version+' — tippe auf "JETZT LADEN" oben, rechts, oder hier unten!';
-  // Einstellungen AUTOMATISCH aufmachen, damit man den Button in den Einstellungen auch sieht
-  var panel=document.getElementById('settingsPanel');
-  if(panel){ panel.classList.add('show'); panel.style.display='block'; }
+  if(statusEl) statusEl.textContent='🔔 Neues Update da: '+data.version+' — JA oder NEIN?';
   auraPlayUpdateSound();
-  // WEG 1, der nicht versteckt werden kann: Computer-Fenster
-  setTimeout(function(){
-    if(!_pendingUpdate) return;
-    var ok=window.confirm('🔔 NEUES UPDATE VERFÜGBAR!\n\nVersion '+data.version+' ist da!\n'+(data.text||'Neue Wörter sind da!')+'\n\nWillst du es JETZT LADEN?\n\n[OK] = Jetzt laden\n[Abbrechen] = Später');
-    if(ok){ auraLoadUpdate(); }
-  }, 600);
+  // Computer-Fenster: JA / NEIN - kann nicht versteckt werden
+  setTimeout(function(){ if(!_pendingUpdate) return; var ok=window.confirm('🔔 NEUES UPDATE!\n\nVersion '+data.version+' ist da!\n'+(data.text||'Neue Wörter sind da!')+'\n\nWillst du es laden?\n\n[OK] = JA, jetzt laden\n[Abbrechen] = NEIN, später'); if(ok){ auraLoadUpdate(); } else { var b=document.getElementById('updateBanner'); if(b) b.style.display='none'; } }, 600);
 }
 var _pendingUpdate=null;
-var _auraSaving=false;
-async function auraCheckForUpdate(showIfNone){
-  var base=window.AURA_UPDATE.base;
-  var statusEl=document.getElementById('updateStatus');
-  if(!base){
-    if(statusEl) statusEl.textContent='Noch keine Adresse eingestellt. Bitte Link einfügen + Speichern tippen.';
-    if(showIfNone) alert('Noch keine Adresse gespeichert.');
-    return;
-  }
-  var url=auraUpdateUrl();
+var _auraChecking=false;
+// AUTO: Alle 10 Sekunden nach der NÄCHSTEN Version suchen
+async function auraAutoCheck(){
+  if(_auraChecking) return;
+  _auraChecking=true;
   try{
-    if(statusEl) statusEl.textContent='Prüfe auf Updates... 🔍\nAdresse: '+url;
-    var res=await fetch(url+'?v='+Date.now(), {cache:'no-store'});
-    if(!res.ok) throw new Error('Datei nicht gefunden ('+res.status+'). Hast du '+url.split('/').pop()+' auf GitHub hochgeladen? Adresse: '+url);
-    var data=await res.json();
-    if(!data.version || !data.words) throw new Error('Datei ist leer.');
-    if(data.version===window.AURA_UPDATE.appVersion || data.version===window.AURA_UPDATE.loadedVersion){
-      if(statusEl) statusEl.textContent='✅ Du hast schon die neueste Version ('+data.version+'). Frag mich z.B. "was ist ein känguru" — wenn sie es weiß, ist das Update schon drin!';
-      // Kein Banner nötig, weil schon geladen. Aber sag es deutlich:
-      if(showIfNone) alert('✅ Du hast schon Version '+data.version+'!\n\nDas Update ist schon drin. Frag mich z.B.:\nwas ist ein känguru');
-      return;
+    var cur=auraCurrentNum();
+    var next=cur+1;
+    // Probiere: words-v24.json zuerst (dein Name), dann update-v24.json als Backup
+    var tries=['words-v'+next+'.json', 'update-v'+next+'.json'];
+    for(var i=0;i<tries.length;i++){
+      var url=window.AURA_UPDATE.repoBase+tries[i]+'?v='+Date.now();
+      try{
+        var res=await fetch(url, {cache:'no-store'});
+        if(!res.ok) continue;
+        var data=await res.json();
+        if(!data.version || !data.words) continue;
+        // Wenn die Datei V24 heißt, aber drin steht V23, nimm die Nummer aus dem Datei-Namen
+        if(!data.version || auraVersionNum(data.version)!==next) data.version='V'+next;
+        if(data.version===window.AURA_UPDATE.loadedVersion) continue;
+        if(_pendingUpdate && _pendingUpdate.version===data.version) continue;
+        _pendingUpdate=data;
+        auraShowUpdateBanner(data);
+        break;
+      }catch(e){}
     }
-    _pendingUpdate=data;
-    auraShowUpdateBanner(data);
-  }catch(e){
-    if(statusEl) statusEl.textContent='⚠️ '+e.message;
-  }
+    var statusEl=document.getElementById('updateStatus');
+    if(statusEl && !_pendingUpdate) statusEl.textContent='✅ Automatisch geprüft. Deine Version: V'+cur+'. Ich gucke alle 10 Sekunden nach V'+next+'. Link ist schon drin, du musst nichts einfügen.';
+  }catch(e){}
+  _auraChecking=false;
 }
 async function auraLoadUpdate(){
-  if(!_pendingUpdate){ await auraCheckForUpdate(false); if(!_pendingUpdate){ alert('Kein Update gefunden.\n\nBitte erst auf "Speichern + Prüfen" tippen.'); return; } }
+  if(!_pendingUpdate){ await auraAutoCheck(); if(!_pendingUpdate){ alert('Kein neues Update gefunden.\n\nIch gucke alle 10 Sekunden automatisch nach der nächsten Version.'); return; } }
   var statusEl=document.getElementById('updateStatus');
+  var barWrap=document.getElementById('updateBarWrap');
+  var bar=document.getElementById('updateBar');
   try{
+    // LADEBALKEN zeigen
+    if(barWrap) barWrap.style.display='block';
+    if(bar){ bar.style.width='0%'; bar.textContent='0%'; }
+    var steps=[10,25,45,65,85,100];
+    for(var s=0;s<steps.length;s++){
+      await new Promise(function(r){ setTimeout(r, 180); });
+      if(bar){ bar.style.width=steps[s]+'%'; bar.textContent=steps[s]+'%'; }
+    }
     if(statusEl) statusEl.textContent='Lade neue Wörter... ⬇️';
     var newWords=_pendingUpdate.words || [];
     var old=auraUpdateWords();
-    var seen={}; old.forEach(function(w){ if(w&&w.wort) seen[w.wort.toLowerCase()]=1; });
+    var seen={}; old.forEach(function(w){ if(w&&w.wort) seen[auraNorm(w.wort)]=1; });
     var added=0;
-    for(var i=0;i<newWords.length;i++){ var w=newWords[i]; if(w&&w.wort&&!seen[w.wort.toLowerCase()]){ old.push(w); seen[w.wort.toLowerCase()]=1; added++; } }
+    for(var i=0;i<newWords.length;i++){ var w=newWords[i]; if(w&&w.wort&&!seen[auraNorm(w.wort)]){ old.push(w); seen[auraNorm(w.wort)]=1; added++; } }
     localStorage.setItem('aura_update_words', JSON.stringify(old));
     window.AURA_UPDATE.loadedVersion=_pendingUpdate.version;
     var banner=document.getElementById('updateBanner'); if(banner) banner.style.display='none';
     var floatBtn=document.getElementById('updateFloatBtn'); if(floatBtn) floatBtn.style.display='none';
-    var btn2=document.getElementById('updateLoadBtn2'); if(btn2) btn2.style.display='none';
-    if(statusEl) statusEl.textContent='✅ Fertig! '+added+' neue Wörter geladen! Version '+_pendingUpdate.version+' — frag mich jetzt z.B. "was ist ein känguru"';
+    if(statusEl) statusEl.textContent='✅ Fertig! '+added+' neue Wörter geladen! Jetzt hast du Version '+_pendingUpdate.version+' — frag mich z.B. "was ist ein wal"';
     auraPlayUpdateSound();
-    alert('✅ Update fertig!\n\n'+added+' neue Wörter sind jetzt drin!\nVersion: '+_pendingUpdate.version+'\n\nFrag mich jetzt z.B.:\nwas ist ein känguru');
+    alert('✅ Update fertig!\n\n'+added+' neue Wörter sind jetzt drin!\nJetzt hast du Version: '+_pendingUpdate.version);
     _pendingUpdate=null;
-  }catch(e){
-    if(statusEl) statusEl.textContent='⚠️ '+e.message;
-  }
+    if(barWrap) setTimeout(function(){ barWrap.style.display='none'; }, 1000);
+  }catch(e){ if(statusEl) statusEl.textContent='⚠️ '+e.message; }
 }
-function auraSaveUpdateBase(){
-  if(_auraSaving) return false;
-  _auraSaving=true;
-  setTimeout(function(){ _auraSaving=false; }, 1500);
-  var inp=document.getElementById('updateBaseInput');
-  var statusEl=document.getElementById('updateStatus');
-  var raw=inp ? inp.value : '';
-  if(!raw || !raw.trim()){
-    if(statusEl) statusEl.textContent='⚠️ Erst einen Link einfügen, dann Speichern tippen!';
-    alert('⚠️ Du hast noch keinen Link eingefügt!');
-    return false;
-  }
-  var fixed=auraNormalizeBase(raw);
-  if(inp) inp.value=fixed;
-  window.AURA_UPDATE.base=fixed;
-  if(statusEl) statusEl.textContent='✅ Gespeichert: '+fixed+'\nJetzt prüfe ich...';
-  alert('✅ Gespeichert!\n\nDeine Adresse ist jetzt:\n'+fixed+'\n\nJetzt prüfe ich auf Updates...');
-  auraCheckForUpdate(false);
-  return false;
-}
-window.auraSaveUpdateBase=auraSaveUpdateBase;
 window.auraLoadUpdate=auraLoadUpdate;
 function auraInitUpdateUI(){
   var loadBtn=document.getElementById('updateLoadBtn');
@@ -2053,29 +2001,16 @@ function auraInitUpdateUI(){
   if(document.getElementById('updateSettings')) return true;
   var div=document.createElement('div');
   div.id='updateSettings';
-  div.innerHTML='<h3 style="margin:0 0 6px 0">🔔 Updates</h3><div class="small">App: <b>'+window.AURA_UPDATE.appVersion+'</b> • Geladen: <b>'+(window.AURA_UPDATE.loadedVersion||'noch keine')+'</b></div><input id="updateBaseInput" placeholder="Link mit Version hinten, z.B. .../update-v20.json" autocomplete="off" onclick="event.stopPropagation()" onmousedown="event.stopPropagation()"><button id="updateSaveBtn" type="button" onclick="event.stopPropagation(); return window.auraSaveUpdateBase();" onmousedown="event.stopPropagation()">✅ Speichern + Prüfen</button><button id="updateLoadBtn2" type="button" onclick="event.stopPropagation(); return window.auraLoadUpdate();" onmousedown="event.stopPropagation()">⬇️ JETZT LADEN</button><div id="updateStatus">Noch nicht geprüft.</div><div class="small" style="margin-top:6px">Tipp: Link mit Version hinten, z.B. <b>.../main/update-v20.json</b></div>';
+  div.innerHTML='<h3 style="margin:0 0 6px 0">🔔 Updates — automatisch!</h3><div class="small">Deine Version: <b>'+(window.AURA_UPDATE.loadedVersion||window.AURA_UPDATE.appVersion)+'</b><br>Link ist schon drin: <b>BIGLABPRINTS / Aura-Ai</b><br>Ich gucke alle 10 Sekunden automatisch nach der nächsten Version. Du musst nichts einfügen!</div><div id="updateStatus">Prüfe automatisch...</div>';
   panel.appendChild(div);
-  div.addEventListener('click', function(e){ e.stopPropagation(); });
-  div.addEventListener('mousedown', function(e){ e.stopPropagation(); });
-  var inp=document.getElementById('updateBaseInput');
-  if(inp){ inp.value=window.AURA_UPDATE.base; if(window.AURA_UPDATE.base){ var s=document.getElementById('updateStatus'); if(s) s.textContent='Gespeicherte Adresse: '+window.AURA_UPDATE.base; } }
-  var save=document.getElementById('updateSaveBtn');
-  if(save){ save.addEventListener('click', function(e){ e.stopPropagation(); e.preventDefault(); window.auraSaveUpdateBase(); }); }
-  var load2=document.getElementById('updateLoadBtn2');
-  if(load2){ load2.addEventListener('click', function(e){ e.stopPropagation(); e.preventDefault(); window.auraLoadUpdate(); }); }
-  if(inp){ inp.addEventListener('keydown', function(e){ e.stopPropagation(); if(e.key==='Enter'){ e.preventDefault(); window.auraSaveUpdateBase(); } }); inp.addEventListener('paste', function(){ setTimeout(function(){ var f=auraNormalizeBase(inp.value); if(f) inp.value=f; }, 50); }); inp.addEventListener('click', function(e){ e.stopPropagation(); }); }
-  if(_pendingUpdate){ var b2=document.getElementById('updateLoadBtn2'); if(b2){ b2.style.display='block'; b2.textContent='⬇️ JETZT LADEN: Version '+_pendingUpdate.version; } }
   return true;
 }
 (function(){
   var tries=0;
-  var timer=setInterval(function(){
-    tries++;
-    try{ var ok=auraInitUpdateUI(); }catch(e){ ok=false; }
-    if(ok || tries>40){ clearInterval(timer); }
-  }, 500);
-  setTimeout(function(){ try{ auraCheckForUpdate(false); }catch(e){} }, 3000);
-  setInterval(function(){ try{ auraCheckForUpdate(false); }catch(e){} }, 60000);
+  var timer=setInterval(function(){ tries++; try{ var ok=auraInitUpdateUI(); }catch(e){ ok=false; } if(ok || tries>40){ clearInterval(timer); } }, 500);
+  // SOFORT 1x prüfen, dann alle 10 Sekunden
+  setTimeout(function(){ auraAutoCheck(); }, 2000);
+  setInterval(function(){ auraAutoCheck(); }, 10000);
 })();
 </script>
 
