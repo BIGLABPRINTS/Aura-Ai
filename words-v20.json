@@ -1,0 +1,87 @@
+
+{
+  "version": "V20",
+  "text": "20 neue Test-Wörter V20! Känguru, Pinguin, Koala, Löwe, Tiger und mehr!",
+  "words": [
+    {
+      "wort": "känguru",
+      "antwort": "Känguru! 🦘 Ein Känguru lebt in Australien! Es hüpft statt zu laufen! Und es hat eine Tasche am Bauch, da sitzt sein Baby drin!"
+    },
+    {
+      "wort": "pinguin",
+      "antwort": "Pinguin! 🐧 Ein Pinguin kann nicht fliegen, aber er kann super schwimmen! Er watschelt so lustig! Und er lebt da, wo es eiskalt ist!"
+    },
+    {
+      "wort": "koala",
+      "antwort": "Koala! 🐨 Ein Koala schläft bis zu 22 Stunden am Tag! Er isst nur Eukalyptus-Blätter! Und er sieht aus wie ein kleiner Teddybär!"
+    },
+    {
+      "wort": "eisbär",
+      "antwort": "Eisbär! 🐻‍❄️ Ein Eisbär ist der größte Bär der Welt! Er lebt im Schnee und Eis! Er kann super schwimmen!"
+    },
+    {
+      "wort": "löwe",
+      "antwort": "Löwe! 🦁 Ein Löwe ist der König der Tiere! Er hat eine große Mähne! Und sein Brüllen kann man 8 Kilometer weit hören!"
+    },
+    {
+      "wort": "tiger",
+      "antwort": "Tiger! 🐯 Ein Tiger hat Streifen wie ein Zebra! Jeder Tiger hat andere Streifen, genau wie wir andere Fingerabdrücke haben!"
+    },
+    {
+      "wort": "affe",
+      "antwort": "Affe! 🐵 Ein Affe ist super schlau! Er kann klettern, schaukeln und sogar Werkzeuge benutzen! Magst du Affen?"
+    },
+    {
+      "wort": "zebra",
+      "antwort": "Zebra! 🦓 Ein Zebra ist schwarz mit weißen Streifen — oder weiß mit schwarzen? Wissenschaftler sagen: Es ist schwarz mit weißen Streifen!"
+    },
+    {
+      "wort": "giraffe",
+      "antwort": "Giraffe! 🦒 Eine Giraffe ist das größte Tier an Land! Sie hat einen so langen Hals, dass sie bis in die Baumspitzen kommt!"
+    },
+    {
+      "wort": "elefant",
+      "antwort": "Elefant! 🐘 Ein Elefant ist das größte Landtier! Er hat einen Rüssel, mit dem er trinken, riechen und sogar malen kann!"
+    },
+    {
+      "wort": "nashorn",
+      "antwort": "Nashorn! 🦏 Ein Nashorn hat ein Horn auf der Nase! Es ist super stark! Aber es sieht gar nicht so gut!"
+    },
+    {
+      "wort": "krokodil",
+      "antwort": "Krokodil! 🐊 Ein Krokodil hat 80 Zähne! Und wenn einer rausfällt, wächst einfach ein neuer nach!"
+    },
+    {
+      "wort": "schlange",
+      "antwort": "Schlange! 🐍 Eine Schlange hat keine Beine! Sie schlängelt sich! Und sie kann ihre Zunge rausstrecken, um zu riechen!"
+    },
+    {
+      "wort": "schildkröte",
+      "antwort": "Schildkröte! 🐢 Eine Schildkröte trägt ihr Haus auf dem Rücken! Sie kann über 100 Jahre alt werden!"
+    },
+    {
+      "wort": "frosch",
+      "antwort": "Frosch! 🐸 Ein Frosch kann super weit springen! Er sagt Quak Quak! Und er war mal eine Kaulquappe!"
+    },
+    {
+      "wort": "biene",
+      "antwort": "Biene! 🐝 Eine Biene macht Honig! Sie fliegt von Blume zu Blume! Und ohne Bienen gäbe es fast kein Obst!"
+    },
+    {
+      "wort": "schmetterling",
+      "antwort": "Schmetterling! 🦋 Ein Schmetterling war mal eine Raupe! Dann hat er sich verpuppt und ist als Schmetterling rausgekommen! Wie Zauberei!"
+    },
+    {
+      "wort": "marienkäfer",
+      "antwort": "Marienkäfer! 🐞 Ein Marienkäfer hat Punkte! Er bringt Glück, sagen die Leute! Und er frisst Blattläuse!"
+    },
+    {
+      "wort": "ameise",
+      "antwort": "Ameise! 🐜 Eine Ameise kann 50-mal so viel tragen wie sie selbst wiegt! Das wäre, als würdest du ein Auto tragen!"
+    },
+    {
+      "wort": "spinne",
+      "antwort": "Spinne! 🕷️ Eine Spinne hat 8 Beine und 8 Augen! Sie spinnt ein Netz und fängt darin Fliegen!"
+    }
+  ]
+}
